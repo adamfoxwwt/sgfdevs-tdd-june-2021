@@ -1,9 +1,16 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("renders the page title", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const title = screen.getByText(/Todo-Driven Development/i);
+  expect(title).toBeInTheDocument();
+});
+
+test("renders TodoList", () => {
+  render(<App />);
+  const todos = screen.getByText("My List");
+
+  expect(todos).toBeInTheDocument();
 });
